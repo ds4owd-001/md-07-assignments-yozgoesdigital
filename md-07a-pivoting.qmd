@@ -18,10 +18,12 @@ editor_options:
 The required packages for this homework exercise have already been added.
 
 1.  Run the code chunk below to load the required packages. Tipp: Click on the green play button in the top right corner of the code chunk.
-2.  What's the `tidyverse` Package? Describe in maximum two sentences below.
+2.  What's the `tidyverse` Package? Describe in maximum two sentences below.\
+    collection of useful libraries which work together
 
 ```{r}
 library(tidyverse)
+
 ```
 
 ## Task 2: Import data
@@ -29,7 +31,7 @@ library(tidyverse)
 1.  Use the `read_csv()` (**Note**: Watch out for the `_` and don't use the `.` as in `read.csv()`) function to import the "msw-generation-and-composition-by-income.csv" data from the `data` directory and assign it to an object with the name `waste_data`.
 
 ```{r}
-
+waste_data <- read_csv("data/msw-generation-and-composition-by-income.csv")
 ```
 
 ## Task 3: Vector coersion
@@ -45,7 +47,12 @@ library(tidyverse)
 5.  Render and fix any errors
 
 ```{r}
+glimpse(waste_data)
 
+waste_data |>
+  count(income_cat) |> 
+
+  frequency(x= income_cat)
 ```
 
 ## Task 4: From wide to long
