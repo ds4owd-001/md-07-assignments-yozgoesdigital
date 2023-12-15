@@ -1,6 +1,6 @@
 ---
 title: "Data Visualisation"
-author: ""
+author: "Jos"
 format:
   html:
     embed-resources: true
@@ -161,7 +161,19 @@ waste_data_long_mean <- read_rds("data/msw-generation-and-composition-by-income-
 **Note:** The size of the plot will be different. That is alright and does not need to match.
 
 ```{r}
-
+waste_data_long_mean |> 
+  ggplot(mapping = 
+           aes(
+             x = mean_percent,
+             y = waste_category,
+             fill = income_cat,
+             )) +
+  geom_col(position = position_dodge()) +
+  labs(title = "Waste Composition",
+       subtitle = "mean percentage of nine waste categories displayed by income categories",
+       #legend(),
+       x = "mean percentage",
+       y = "waste categories")
 
 ```
 
