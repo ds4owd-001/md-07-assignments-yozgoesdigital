@@ -56,6 +56,8 @@ levels_income_cat <- c("high income",
 
 waste_data_fct <- waste_data |> 
   mutate(income_cat = factor(income_cat, levels = levels_income_cat))
+waste_data_fct |> 
+  count(income_cat)
 
 ```
 

@@ -79,7 +79,15 @@ waste_data_fct |>
 4.  Render and fix any errors
 
 ```{r}
+waste_data_fct |> glimpse()
 
+waste_data_long <- waste_data_fct |> 
+  pivot_longer(food_organic_waste:yard_garden_green_waste,
+               names_to = "waste_category",
+               values_to = "percent") |> 
+  na.exclude("percent")
+
+glimpse(waste_data_long)
 ```
 
 # Part 2: Data summary
