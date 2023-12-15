@@ -49,10 +49,19 @@ waste_data <- read_csv("data/msw-generation-and-composition-by-income.csv")
 ```{r}
 glimpse(waste_data)
 
-waste_data |>
-  count(income_cat) |> 
+waste_data |> 
+  count(income_cat)
 
-  frequency(x= income_cat)
+levels_income_cat <- c("high income",
+                       "upper-middle income",
+                       "lower-middle income",
+                       "low income")
+
+waste_data_fct <- waste_data |> 
+  mutate(income_cat = factor(income_cat, level = levels_income_cat))
+
+waste_data_fct |> 
+  count(income_cat)
 ```
 
 ## Task 4: From wide to long
