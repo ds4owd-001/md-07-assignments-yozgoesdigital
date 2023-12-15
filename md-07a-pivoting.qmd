@@ -109,15 +109,19 @@ waste_data_long <- read_rds("data/msw-generation-and-composition-by-income-long.
 2.  Assign the created data frame to an object with the name `waste_data_long_mean`.
 
 ```{r}
+waste_data_long_mean <- waste_data_long |> 
+  group_by(income_cat,waste_category) |> 
+  summarise(mean(percent))
 
 ```
 
 ## Task 3: Table display
 
-1.  Starting with the `waste_data_long_mean` object, execute the code and observe the output in the Console. Would you publish this table in this format in a report?
+1.  Starting with the `waste_data_long_mean` object, execute the code and observe the output in the Console. Would you publish this table in this format in a report?\
+    no, I would visualise it over the two axis
 
 ```{r}
-
+waste_data_long_mean
 ```
 
 ## Task 4: From long to wide
