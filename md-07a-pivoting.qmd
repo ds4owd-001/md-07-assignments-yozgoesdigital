@@ -111,7 +111,7 @@ waste_data_long <- read_rds("data/msw-generation-and-composition-by-income-long.
 ```{r}
 waste_data_long_mean <- waste_data_long |> 
   group_by(income_cat,waste_category) |> 
-  summarise(mean(percent))
+  summarise(mean_percent = mean(percent))
 
 ```
 
@@ -133,7 +133,9 @@ waste_data_long_mean
 3.  Render and fix any errors
 
 ```{r}
-
+waste_data_long_mean |> 
+  pivot_wider(values_from = mean_percent,
+              names_from = waste_category)
 ```
 
 # Part 3: Data visualization (stretch goal)
